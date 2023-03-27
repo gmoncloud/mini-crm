@@ -61,3 +61,8 @@ This supposed to be in a dropdown but its not implemented yet in the front-end
 ##PAGINATION
 Pagination will show if the record is >= 10
 
+## API endpoint
+This will fetch all the records in properties (no token needed)
+https://minicrm.local/api/v1/properties
+
+
