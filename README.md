@@ -59,14 +59,14 @@ This supposed to be in a dropdown but its not implemented yet in the front-end. 
 7. There is no way to delete and update the property images yet.
 8. Delete a property (this will delete also the address associated with it.)
 
-##PAGINATION
+## PAGINATION
 Pagination will show if the record is >= 10
 
 ## API endpoint
 This will fetch all the records in properties (no token needed)
 https://minicrm.local/api/v1/properties
 
-##File Changes
+## File Changes
 You can visit here:
 [https://github.com/gmoncloud/mini-crm/pull/1](https://github.com/gmoncloud/mini-crm/pull/1/commits/64d765caff1f471c6d11cee70d8ce942c22bab5b)
 [https://github.com/gmoncloud/mini-crm/pull/2](https://github.com/gmoncloud/mini-crm/pull/2/commits/fd3326a66d66608acea061384158151b963d2a25)
