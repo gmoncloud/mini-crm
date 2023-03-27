@@ -11,7 +11,7 @@
 
 ##How to test it?
 
-1. Pull the main branch to your local machine
+1. Pull the `main` branch to your local machine
 2. Run `php artisan migrate`
 3. Run `php artisan db:seed --class=DatabaseSeeder`
 4. If your are working in a Windows machine make sure you configure your host file to the local domain that you prefer, mine is https://minicrm.local/
