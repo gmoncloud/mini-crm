@@ -28,7 +28,12 @@ const form = useForm({
   city: '',
   country: '',
   postcode: '',
+  images: '',
 });
+
+const onFileSelected = (event) => {
+  form.images = event.target.files
+};
 
 </script>
 
@@ -237,6 +242,16 @@ const form = useForm({
           />
 
           <InputError class="mt-2" :postcode="form.errors.postcode" />
+        </div>
+
+        <div>
+          <InputLabel for="image" value="Select Image" />
+          <input
+              type="file"
+              @change="onFileSelected"
+              class="mt-1 block w-full"
+              multiple
+          >
         </div>
 
         <PrimaryButton class="mt-4">Create</PrimaryButton>
