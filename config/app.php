@@ -123,6 +123,8 @@ return [
 
     'key' => env('APP_KEY'),
 
+    'map_box_token' => env('MAP_BOX_TOKEN'),
+
     'cipher' => 'AES-256-CBC',
 
     /*
@@ -197,7 +199,8 @@ return [
 
         // Custom Service Providers...
         App\Providers\PropertyTypeRepositoryServiceProvider::class,
-
+        App\Providers\PropertyRepositoryServiceProvider::class,
+        App\Providers\AddressServiceProvider::class,
     ],
 
     /*
