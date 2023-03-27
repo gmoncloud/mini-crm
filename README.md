@@ -65,4 +65,10 @@ Pagination will show if the record is >= 10
 This will fetch all the records in properties (no token needed)
 https://minicrm.local/api/v1/properties
 
+##File Changes
+You can visit here:
+[https://github.com/gmoncloud/mini-crm/pull/1](https://github.com/gmoncloud/mini-crm/pull/1/commits/64d765caff1f471c6d11cee70d8ce942c22bab5b)
+[https://github.com/gmoncloud/mini-crm/pull/2](https://github.com/gmoncloud/mini-crm/pull/2/commits/fd3326a66d66608acea061384158151b963d2a25)
+[https://github.com/gmoncloud/mini-crm/pull/3](https://github.com/gmoncloud/mini-crm/pull/3/commits/331cb0069869032cb54608a4821e42359a1f3257)
+[https://github.com/gmoncloud/mini-crm/pull/4](https://github.com/gmoncloud/mini-crm/pull/4/commits/97a81ec3bcc48f0bca8fa921fb41e63e5d81d67b)
 
