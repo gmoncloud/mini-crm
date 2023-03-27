@@ -51,7 +51,7 @@ password: password
  
 3. For the Addressable type make sure your value is using the following:
 `Home`, `Work`, `Business`, `Shipping`, `Biling`, `Mailing`, `Primary`, `Secondary`
-This supposed to be in a dropdown but its not implemented yet in the front-end
+This supposed to be in a dropdown but its not implemented yet in the front-end. It will create an error if input a value other then those `ENUM` value specified.
 4. From address 1 until the country fields make sure that you input a correct data to get the correct longitude and latitude from MapBox else it will create an error that I haven't hadled yet.
 5. After filling out the fields check the table for address, the longitude and latitude must have a value (this coming from MapBox already)
 6. The Property Type data when showing the edit is not populating (this is a bug) but the data can be updated propertly
