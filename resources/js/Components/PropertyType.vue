@@ -21,8 +21,7 @@ const props = defineProps(['property_type']);
 const form = useForm({
   name: props.property_type.name,
   description: props.property_type.description,
-  is_active: props.property_type.is_active,
-  images: ''
+  is_active: props.property_type.is_active
 });
 
 const editing = ref(false);
@@ -84,16 +83,6 @@ const editing = ref(false);
                   class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
               ></textarea>
               <InputError :name="form.errors.description" class="mt-2" />
-            </div>
-
-            <div>
-              <InputLabel for="image" value="Select Image" />
-              <input
-                  type="file"
-                  @change="onFileSelected"
-                  class="mt-1 block w-full"
-                  multiple
-              >
             </div>
 
             <div class="flex my-4">

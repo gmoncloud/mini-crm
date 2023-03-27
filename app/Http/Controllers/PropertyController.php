@@ -71,7 +71,14 @@ class PropertyController extends Controller
             'address_id'       => $address_id,
         ];
 
-        $this->propertyRepository->create($propertyData);
+        $property = $this->propertyRepository->create($propertyData);
+
+        if ($images = $request->file('images')) {
+            foreach ($images as $image) {
+                $property->addMedia($image)->toMediaCollection('images');
+            }
+        }
+
         return redirect(route('properties.index'));
     }
 
@@ -100,6 +107,8 @@ class PropertyController extends Controller
     public function destroy(Property $property): RedirectResponse
     {
         $this->propertyRepository->delete($property->id);
+        $this->addressRepository->delete($property->id);
+
         return redirect(route('properties.index'));
     }
 }

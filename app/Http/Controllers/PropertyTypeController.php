@@ -29,14 +29,7 @@ class PropertyTypeController extends Controller
      */
     public function store(PropertyTypeRequest $request)
     {
-        $property_type = $this->propertyTypeRepository->create($request->validated());
-
-        if ($images = $request->file('images')) {
-            foreach ($images as $image) {
-                $property_type->addMedia($image)->toMediaCollection('images');
-            }
-        }
-
+        $this->propertyTypeRepository->create($request->validated());
         return redirect(route('property_types.index'));
     }
 

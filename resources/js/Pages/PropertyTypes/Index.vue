@@ -15,7 +15,6 @@ const form = useForm({
   name: '',
   description: '',
   is_active: true,
-  images: ''
 });
 
 const data = {
@@ -31,11 +30,6 @@ const updateTodos = (property) => {
   data.description = property.description
   data.is_active = property.is_active
 };
-
-const onFileSelected = (event) => {
-    form.images = event.target.files
-};
-
 </script>
 
 <template>
@@ -64,16 +58,6 @@ const onFileSelected = (event) => {
               class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
           ></textarea>
           <InputError :name="form.errors.description" class="mt-2" />
-        </div>
-
-        <div>
-          <InputLabel for="image" value="Select Image" />
-          <input
-              type="file"
-              @change="onFileSelected"
-              class="mt-1 block w-full"
-              multiple
-          >
         </div>
 
         <div class="flex my-4">
