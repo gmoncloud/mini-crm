@@ -24,6 +24,9 @@ class PropertyTypeRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'description' => 'required',
+            'images.*' => 'required|image|mimes:jpeg,jpg,png|max:2048',
+            'images' => 'max:5',
+            'is_active' => ''
         ];
     }
 }

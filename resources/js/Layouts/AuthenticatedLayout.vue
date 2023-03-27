@@ -35,6 +35,9 @@ const showingNavigationDropdown = ref(false);
                                 <NavLink :href="route('property_types.index')" :active="route().current('property_types.index')">
                                   Property Type
                                 </NavLink>
+                                <NavLink :href="route('properties.index')" :active="route().current('properties.index')">
+                                  Property
+                                </NavLink>
                             </div>
                         </div>
 

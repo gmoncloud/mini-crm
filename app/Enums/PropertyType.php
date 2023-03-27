@@ -4,53 +4,46 @@ namespace App\Enums;
 
 enum PropertyType: string
 {
-    case SINGLE_FAMILY_HOME = 'Single Family Home';
-    case TOWN_HOUSE = 'Townhouse';
-    case CONDOMINIUM = 'Condominium';
-    case APARTMENT = 'Apartment';
-    case DUPLEX = 'Duplex';
-    case OFFICE = 'Office';
+    case DETACHED = 'Detached';
+    case SEMI_DETACHED = 'Semi-detached';
+    case FLAT = 'Flat';
+    case TERRACED = 'Terraced';
+    case BUNGALOW = 'Bungalow';
 
 
-    public function isSingleFamilyHome(): string
+    public function isDetached(): string
     {
-        return $this === self::SINGLE_FAMILY_HOME;
+        return $this === self::DETACHED;
     }
 
-    public function isTownHouse(): string
+    public function isSemiDetached(): string
     {
-        return $this === self::TOWN_HOUSE;
+        return $this === self::SEMI_DETACHED;
     }
 
-    public function isCondominium(): string
+    public function isFlat(): string
     {
-        return $this === self::CONDOMINIUM;
+        return $this === self::FLAT;
     }
 
-    public function isApartment(): string
+    public function isTerraced(): string
     {
-        return $this === self::APARTMENT;
+        return $this === self::TERRACED;
     }
 
-    public function isDuplex(): string
+    public function isBungalow(): string
     {
-        return $this === self::DUPLEX;
-    }
-
-    public function isOffice(): string
-    {
-        return $this === self::OFFICE;
+        return $this === self::BUNGALOW;
     }
 
     public function getLabelText(): string
     {
         return match ($this) {
-            self::SINGLE_FAMILY_HOME => 'Single Family Home',
-            self::TOWN_HOUSE => 'Townhouse',
-            self::CONDOMINIUM => 'Condominium',
-            self::APARTMENT => 'Apartment',
-            self::DUPLEX => 'Duplex',
-            self::OFFICE => 'Office'
+            self::DETACHED => 'Detached',
+            self::SEMI_DETACHED => 'Semi-detached',
+            self::FLAT => 'Flat',
+            self::TERRACED => 'Terraced',
+            self::BUNGALOW => 'Bungalow'
         };
     }
 

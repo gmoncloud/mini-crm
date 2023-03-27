@@ -6,7 +6,6 @@ use App\Contracts\PropertyTypeRepositoryInterface;
 use App\Http\Requests\PropertyTypeRequest;
 use App\Models\PropertyType;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -21,16 +20,8 @@ class PropertyTypeController extends Controller
     public function index(): Response
     {
         return Inertia::render('PropertyTypes/Index', [
-            'property_types' => $this->propertyTypeRepository->all(),
+            'property_types' => $this->propertyTypeRepository->paginate(10),
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -38,7 +29,14 @@ class PropertyTypeController extends Controller
      */
     public function store(PropertyTypeRequest $request)
     {
-        $this->propertyTypeRepository->create($request->validated());
+        $property_type = $this->propertyTypeRepository->create($request->validated());
+
+        if ($images = $request->file('images')) {
+            foreach ($images as $image) {
+                $property_type->addMedia($image)->toMediaCollection('images');
+            }
+        }
+
         return redirect(route('property_types.index'));
     }
 
@@ -50,16 +48,6 @@ class PropertyTypeController extends Controller
         return Inertia::render('PropertyTypes/Index', [
             'property_types' => $this->propertyTypeRepository->find($propertyType->id),
         ]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(PropertyType $propertyType)
-    {
-//        return Inertia::render('PropertyTypes/Index', [
-//            'property_types' => $this->propertyTypeRepository->find($propertyType->id),
-//        ]);
     }
 
     /**

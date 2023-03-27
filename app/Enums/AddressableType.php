@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum AddressableType: string
+enum    AddressableType: string
 {
     case HOME = 'Home';
     case WORK = 'Work';

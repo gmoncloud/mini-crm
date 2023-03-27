@@ -32,4 +32,9 @@ class PropertyTypeRepository implements PropertyTypeRepositoryInterface
     {
         return PropertyType::find($id)->delete();
     }
+
+    public function paginate(int $page)
+    {
+        return PropertyType::paginate($page);
+    }
 }

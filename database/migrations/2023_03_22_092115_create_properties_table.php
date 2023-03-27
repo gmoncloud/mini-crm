@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('address_id');
             $table->foreignId('property_type_id');
-            $table->string('name')->unique();
+            $table->string('name');
             $table->string('slug');
             $table->integer('bedrooms');
             $table->integer('bathrooms');
-            $table->string('size');
+            $table->integer('size');
             $table->string('description');
             $table->char('council_tax_band', 1);
             $table->integer('price');
