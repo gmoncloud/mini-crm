@@ -3,6 +3,7 @@
 namespace App\Contracts;
 
 use App\Models\Property;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 
 interface PropertyRepositoryInterface
@@ -18,4 +19,6 @@ interface PropertyRepositoryInterface
     public function delete(int $id): bool;
 
     public function paginate(int $page);
+
+    public function getPropertyWithAddressPagination(int $page): LengthAwarePaginator;
 }

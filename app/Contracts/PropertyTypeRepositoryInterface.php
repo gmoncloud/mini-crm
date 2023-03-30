@@ -9,6 +9,8 @@ interface PropertyTypeRepositoryInterface
 {
     public function all(): Collection;
 
+    public function getAllActivePropertyType(): Collection;
+
     public function find(int $id): ?PropertyType;
 
     public function create(array $data): PropertyType;

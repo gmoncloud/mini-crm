@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Enums\AddressableType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Address extends Model
 {
@@ -26,9 +26,9 @@ class Address extends Model
         'addressable_type' => AddressableType::class,
     ];
 
-    public function properties(): HasMany
+    public function properties(): HasOne
 
     {
-        return $this->hasMany(Property::class);
+        return $this->HasOne(Property::class);
     }
 }

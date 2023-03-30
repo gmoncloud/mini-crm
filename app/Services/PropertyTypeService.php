@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Contracts\PropertyTypeRepositoryInterface;
+use App\Enums\AddressableType;
 use Illuminate\Support\Collection;
 
 class PropertyTypeService
@@ -13,6 +14,6 @@ class PropertyTypeService
 
     public function getPropertyTypes(): Collection
     {
-        return $this->propertyTypeRepository->all();
+        return $this->propertyTypeRepository->getAllActivePropertyType();
     }
 }

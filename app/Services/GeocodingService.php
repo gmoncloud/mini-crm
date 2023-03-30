@@ -20,5 +20,4 @@ class GeocodingService
             return null;
         }
     }
-
 }

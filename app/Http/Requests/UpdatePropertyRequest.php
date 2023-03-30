@@ -23,6 +23,7 @@ class UpdatePropertyRequest extends FormRequest
     {
         return [
             'name'             => 'required|string|max:255',
+            'property_type_id' => 'required|numeric',
             'slug'             => 'required|string',
             'bedrooms'         => 'required|numeric',
             'bathrooms'        => 'required|numeric',
@@ -30,6 +31,13 @@ class UpdatePropertyRequest extends FormRequest
             'description'      => 'required|string',
             'price'            => 'required|numeric',
             'currency'         => 'required|string',
+            'tenure'           => 'required|numeric',
+            'addressable_type' => 'required|string',
+            'address_line_1'   => 'nullable|string',
+            'address_line_2'   => 'nullable|string',
+            'city'             => 'required|string',
+            'country'          => 'required|string',
+            'postcode'         => 'required|string',
         ];
     }
 }

@@ -20,7 +20,6 @@ class PropertyController extends Controller
      */
     public function index()
     {
-
         $properties = Cache::remember('properties', 60, function () {
             return $this->propertyRepository->all();
         });
