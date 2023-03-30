@@ -13,6 +13,11 @@ class PropertyTypeRepository implements PropertyTypeRepositoryInterface
         return PropertyType::all();
     }
 
+    public function getAllActivePropertyType(): Collection
+    {
+        return PropertyType::where('is_active', '=', 1)->get();
+    }
+
     public function find(int $id): ?PropertyType
     {
         return PropertyType::find($id);

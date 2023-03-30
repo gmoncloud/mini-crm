@@ -2,6 +2,8 @@
 
 namespace App\Enums;
 
+use Illuminate\Support\Collection;
+
 enum    AddressableType: string
 {
     case HOME = 'Home';
@@ -53,17 +55,25 @@ enum    AddressableType: string
         return $this === self::SECONDARY;
     }
 
-    public function getLabelText(): string
+
+    public static function getLabelText(): Collection
     {
-        return match ($this) {
-            self::HOME => 'Home',
-            self::WORK => 'Work',
-            self::BUSINESS => 'Business',
-            self::SHIPPING => 'Shipping',
-            self::BILLING => 'Billing',
-            self::MAILING => 'Mailing',
-            self::PRIMARY => 'Primary',
-            self::SECONDARY => 'Secondary'
-        };
+        return collect(
+            [
+                self::HOME,
+                self::WORK,
+                self::BUSINESS,
+                self::SHIPPING,
+                self::BILLING,
+                self::MAILING,
+                self::PRIMARY,
+                self::SECONDARY
+            ]
+        )->map(function($name) {
+            return [
+                'name' => $name,
+                'value' => $name
+            ];
+        });
     }
 }

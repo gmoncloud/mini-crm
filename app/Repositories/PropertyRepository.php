@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Contracts\PropertyRepositoryInterface;
 use App\Models\Property;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 
 class PropertyRepository implements PropertyRepositoryInterface
@@ -36,5 +37,10 @@ class PropertyRepository implements PropertyRepositoryInterface
     public function paginate(int $page)
     {
         return Property::paginate($page);
+    }
+
+    public function getPropertyWithAddressPagination(int $page): LengthAwarePaginator
+    {
+        return Property::join('addresses', 'properties.address_id', '=', 'addresses.id')->paginate($page);
     }
 }

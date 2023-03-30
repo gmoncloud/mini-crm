@@ -4,7 +4,6 @@ import DropdownLink from '@/Components/DropdownLink.vue';
 import TextInput from '@/Components/TextInput.vue';
 import NumberInput from '@/Components/NumberInput.vue';
 import InputLabel from '@/Components/InputLabel.vue';
-import Checkbox from '@/Components/Checkbox.vue';
 import InputError from '@/Components/InputError.vue';
 import Modal from '@/Components/Modal.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
@@ -17,11 +16,13 @@ dayjs.extend(relativeTime);
 
 const props = defineProps(
     [
+      'addressable_types',
       'property',
       'property_types'
     ]
 );
 
+console.log("addressable edit: ", props.addressable_types);
 
 const form = useForm({
   name: props.property.name,
@@ -94,7 +95,7 @@ const editing = ref(false);
               <div>
                 <InputLabel for="property_type" value="Property Type" />
                 <select v-model="form.property_type_id">
-                  <option>Select Property Type</option>
+                  <option value="">Select Property Type</option>
                   <option v-for="property_type in property_types" :value="property_type.id">
                     {{ property_type.name }}
                   </option>
@@ -194,6 +195,100 @@ const editing = ref(false);
                 />
 
                 <InputError class="mt-2" :currency="form.errors.currency" />
+              </div>
+
+              <div>
+                <InputLabel for="tenure" value="Tenure" />
+                <NumberInput
+                    id="tenure"
+                    type="number"
+                    class="mt-1 block w-full"
+                    v-model="form.tenure"
+                />
+
+                <InputError class="mt-2" :tenure="form.errors.tenure" />
+              </div>
+
+              <div>
+                <InputLabel for="addressable_type" value="Addressable Type" />
+                <select v-model="form.addressable_type">
+                  <option disabled value="">Please select one</option>
+                  <option v-for="addressable_type in addressable_types" :value="addressable_type.value">
+                    {{ addressable_type.name }}
+                  </option>
+                </select>
+
+                <InputError class="mt-2" :addressable_type="form.errors.addressable_type" />
+              </div>
+
+              <div>
+                <InputLabel for="address_line_1" value="Address 1" />
+                <TextInput
+                    id="address_line_1"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.address_line_1"
+                />
+
+                <InputError class="mt-2" :address_line_1="form.errors.address_line_1" />
+              </div>
+
+              <div>
+                <InputLabel for="address_line_2" value="Address 2" />
+                <TextInput
+                    id="address_line_2"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.address_line_2"
+                />
+
+                <InputError class="mt-2" :address_line_2="form.errors.address_line_2" />
+              </div>
+
+              <div>
+                <InputLabel for="city" value="City" />
+                <TextInput
+                    id="city"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.city"
+                />
+
+                <InputError class="mt-2" :city="form.errors.city" />
+              </div>
+
+              <div>
+                <InputLabel for="country" value="Country" />
+                <TextInput
+                    id="country"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.country"
+                />
+
+                <InputError class="mt-2" :country="form.errors.country" />
+              </div>
+
+              <div>
+                <InputLabel for="postcode" value="Postcode" />
+                <TextInput
+                    id="postcode"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.postcode"
+                />
+
+                <InputError class="mt-2" :postcode="form.errors.postcode" />
+              </div>
+
+              <div>
+                <InputLabel for="image" value="Select Image" />
+                <input
+                    type="file"
+                    @change="onFileSelected"
+                    class="mt-1 block w-full"
+                    multiple
+                >
               </div>
 
               <div class="space-x-2 flex justify-end">

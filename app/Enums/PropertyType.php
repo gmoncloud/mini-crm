@@ -46,5 +46,4 @@ enum PropertyType: string
             self::BUNGALOW => 'Bungalow'
         };
     }
-
 }

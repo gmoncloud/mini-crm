@@ -7,8 +7,15 @@ import TextInput from '@/Components/TextInput.vue';
 import NumberInput from '@/Components/NumberInput.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import { useForm, Head } from '@inertiajs/vue3';
+import Pagination from "@/Components/Pagination.vue";
 
-defineProps(['properties', 'property_types']);
+const props = defineProps([
+  'addressable_types',
+  'properties',
+  'property_types'
+]);
+
+console.log("addressable: ", props.addressable_types);
 
 const form = useForm({
   name: '',
@@ -58,13 +65,13 @@ const onFileSelected = (event) => {
         <div>
           <InputLabel for="property_type" value="Property Type" />
           <select v-model="form.property_type_id">
-            <option>Select Property Type</option>
+            <option disabled value="">Please select one</option>
             <option v-for="property_type in property_types" :value="property_type.id">
               {{ property_type.name }}
             </option>
           </select>
         </div>
-
+        <InputError class="mt-2" :name="form.errors.property_type_id" />
         <div>
           <InputLabel for="slug" value="Slug" />
           <TextInput
@@ -174,12 +181,19 @@ const onFileSelected = (event) => {
 
         <div>
           <InputLabel for="addressable_type" value="Addressable Type" />
-          <TextInput
-              id="tenure"
-              type="text"
-              class="mt-1 block w-full"
-              v-model="form.addressable_type"
-          />
+<!--          <TextInput-->
+<!--              id="tenure"-->
+<!--              type="text"-->
+<!--              class="mt-1 block w-full"-->
+<!--              v-model="form.addressable_type"-->
+<!--          />-->
+
+          <select v-model="form.addressable_type">
+            <option disabled value="">Please select one</option>
+            <option v-for="addressable_type in addressable_types" :value="addressable_type.value">
+              {{ addressable_type.name }}
+            </option>
+          </select>
 
           <InputError class="mt-2" :addressable_type="form.errors.addressable_type" />
         </div>
@@ -270,7 +284,12 @@ const onFileSelected = (event) => {
             v-for="property in properties.data"
             :key="property.id"
             :property="property"
+            :property_types="props.property_types"
+            :addressable_types="props.addressable_types"
         />
+      </div>
+      <div class="mx-8">
+        <Pagination class="mt-6" :links="properties.links" />
       </div>
 
     </div>

@@ -17,10 +17,6 @@
     },
     "dependencies": {
         "@tailwindcss/forms": "^0.5.3",
-        "datatables.net": "^1.13.4",
-        "datatables.net-responsive": "^2.4.1",
-        "datatables.net-select": "^1.6.2",
-        "datatables.net-vue3": "^2.1.0",
         "dayjs": "^1.11.7"
     }
 }

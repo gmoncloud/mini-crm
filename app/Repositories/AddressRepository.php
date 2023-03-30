@@ -3,6 +3,8 @@
 namespace App\Repositories;
 
 use App\Contracts\AddressRepositoryInterface;
+use App\Enums\AddressableType;
+use App\Enums\PropertyType;
 use App\Models\Address;
 use Illuminate\Support\Collection;
 

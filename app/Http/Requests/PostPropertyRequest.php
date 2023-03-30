@@ -23,6 +23,7 @@ class PostPropertyRequest extends FormRequest
     {
         return [
             'name'             => 'required|string|max:255',
+            'property_type_id' => 'required|numeric',
             'slug'             => 'required|string',
             'bedrooms'         => 'required|numeric',
             'bathrooms'        => 'required|numeric',
@@ -35,6 +36,18 @@ class PostPropertyRequest extends FormRequest
             'city'             => 'required|string',
             'country'          => 'required|string',
             'postcode'        => 'required|string',
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'property_type_id.required' => 'The property type is required',
         ];
     }
 }

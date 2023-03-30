@@ -26,7 +26,7 @@ class PropertyTypeRequest extends FormRequest
             'description' => 'required',
             'images.*' => 'required|image|mimes:jpeg,jpg,png|max:2048',
             'images' => 'max:5',
-            'is_active' => ''
+            'is_active' => 'required|boolean',
         ];
     }
 }
