@@ -9,21 +9,23 @@
 
 ## Mini CRM Test Project
 
-##How to test it?
+## How to test it?
 
 1. Pull the `main` branch to your local machine
 2. Add this to your .env file `MAP_BOX_TOKEN=pk.eyJ1IjoiZ21vbmNsb3VkIiwiYSI6ImNsZmpvdzIycjAydzUzdG15NjJwZ3JicHoifQ.QjODdPKjhEFF_rKH1l03tg`
-3. Run `php artisan migrate`
-4. Run `php artisan db:seed --class=DatabaseSeeder`
-5. If your are working in a Windows machine make sure you configure your host file to the local domain that you prefer, mine is https://minicrm.local/
-6. Screenshot for login page: 
+3. Run `composer install`
+4. Run `php artisan migrate`
+5. Run `php artisan db:seed --class=DatabaseSeeder`
+6. Run `yarn dev` to display the front-end properly
+7. If your are working in a Windows machine make sure you configure your host file to the local domain that you prefer, mine is https://minicrm.local/
+8. Screenshot for login page: 
 
 ![image](https://user-images.githubusercontent.com/104826224/227923147-5cbbd5dd-b46b-41b0-bc92-9593a3472143.png)
 
-6. Use this credential to login to the admin:
+9. Use this credential to login to the admin:
 username: admin@property.com
 password: password
-7. Screenshot for the dashboard: 
+10. Screenshot for the dashboard: 
 
 ![image](https://user-images.githubusercontent.com/104826224/227923825-5c018003-da67-44aa-b48e-789979db29aa.png)
 
